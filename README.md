@@ -37,5 +37,9 @@ No installation is required. Simply open the `index.html` file in your web brows
 
 thanks to [OpenWeather](https://openweathermap.org/) and [Pexels](https://www.pexels.com/api/documentation/) for providing the APIs used in this application.
 
+## BELOW ARE SCREENSHOTS 
+   ![LA](weatherIMG (LA).png)
+   ![tokyo](weatherIMG (tokyo).png)
+   ![tokyo](weatherIMG (responsive).png)
 
 
