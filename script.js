@@ -6,10 +6,26 @@ let clearHistoryButton = document.getElementById("clear-history-button");
 let key= "d975e7b7e218ce667608b84b5fae85c4";
 let key1 = "tfTzGqGJhYyUjdGH6MM1CK5fnCBujx1Uhia4FETkcj5jp2v0dIVhBKNO";
 
-//fetch weather details from API and display them
+const spinner = document.createElement("div");
+spinner.className = "spinner";
+searchbtn.appendChild(spinner);
 
+//function to hide spinner
+let hideSpinner = () => {
+    spinner.style.display = "none";
+    document.querySelector('#search-text').style.display = 'block';
+  }
+let showSpinner = () => {
+    spinner.style.display = "inline-block";
+    document.querySelector('#search-text').style.display = 'none';
+
+  }
+
+
+//fetch weather details from API and display them
 let getWeather = () => {
     let cityValue = cityStates.value;
+    
     //checking if input field is empty
     if(cityValue.length == 0){
         result.innerHTML=`<h3>Please enter name and city</h3>`;
@@ -116,9 +132,16 @@ historySelect.addEventListener("change", () => {
     getWeather(selectedCity);
 });
 
-// 
 
 
 
-searchbtn.addEventListener("click", getWeather);
+
+searchbtn.addEventListener("click", () => {
+    getWeather();
+    showSpinner();
+    setTimeout(() => {
+        hideSpinner();
+      }, 2000); 
+  });
+  
 window.addEventListener("load", getWeather);
