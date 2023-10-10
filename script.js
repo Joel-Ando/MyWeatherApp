@@ -25,7 +25,7 @@ let showSpinner = () => {
 //fetch weather details from API and display them
 let getWeather = () => {
     let cityValue = cityStates.value;
-    
+
     //checking if input field is empty
     if(cityValue.length == 0){
         result.innerHTML=`<h3>Please enter name and city</h3>`;
@@ -108,6 +108,9 @@ let saveToLocalStorage = (cityValue) => {
 let populateHistoryDropdown = () => {
     // Retrieve the history from local storage
     let history = JSON.parse(localStorage.getItem("weatherHistory")) || [];
+
+    history.reverse();
+    
     historySelect.innerHTML = "";
     // Populate the dropdown with history items
     history.forEach((city) => {
